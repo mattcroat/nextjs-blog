@@ -24,7 +24,7 @@ export const getSortedPostsData = () => {
     // combine the data with the id
     return {
       id,
-      ...matterResult.data,
+      ...(matterResult.data as { date: string; title: string }),
     }
   })
 
@@ -63,11 +63,11 @@ export const getPostData = async id => {
     .process(matterResult.content)
 
   const contentHtml = processedContent.toString()
-  
+
   // combine the data with the id and contentHtml
   return {
     id,
     contentHtml,
-    ...matterResult.data,
+    ...(matterResult.data as { date: string; title: string }),
   }
 }

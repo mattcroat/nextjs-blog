@@ -4,10 +4,15 @@ import Link from 'next/link'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 
+interface LayoutProps {
+  children: React.ReactNode
+  home?: boolean
+}
+
 const name = 'Matia 🍜'
 export const siteTitle = 'Next.js Sample Website'
 
-const Layout = ({ children, home }) => {
+const Layout = ({ children, home }: LayoutProps) => {
   return (
     <div className={styles.container}>
       <Head>
